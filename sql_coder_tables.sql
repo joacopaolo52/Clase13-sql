@@ -37,20 +37,19 @@ CREATE TABLE `COUNTRY_TOURNAMENTS` (
 `country_tournament_id` INT NOT NULL,
 `country_tournament_name` VARCHAR(20),
 `country_id` INT,
-`age_limit` BOOLEAN,
-`max_age` INT DEFAULT NULL ,
 PRIMARY KEY (`country_tournament_id`),  FOREIGN KEY (`country_id`) REFERENCES COUNTRY (`country_id`)   );
+
+ALTER TABLE COUNTRY_TOURNAMENTS MODIFY COLUMN country_tournament_name VARCHAR(80);
 
 -- TABLE CONTINENTAL_TOURNAMENTS --
 
 DROP TABLE IF EXISTS  CONTINENTAL_TOURNAMENTS;
 CREATE TABLE `CONTINENTAL_TOURNAMENTS` ( 
 `continental_tournament_id` INT NOT NULL,
-`continental_tournament_name` VARCHAR(20),
+`continental_tournament_name` VARCHAR(80),
 `confederation_id` INT,
-`age_limit` BOOLEAN,
-`max_age` INT DEFAULT NULL ,
 PRIMARY KEY (`continental_tournament_id`),  FOREIGN KEY (`confederation_id`) REFERENCES CONFEDERATIONS (`confederation_id`) );
+
 
 
 -- TABLE TEAMS --
@@ -58,29 +57,23 @@ PRIMARY KEY (`continental_tournament_id`),  FOREIGN KEY (`confederation_id`) REF
 DROP TABLE IF EXISTS TEAMS;
 CREATE TABLE IF NOT EXISTS `TEAMS` (
 `team_id` INT NOT NULL,
-`team_name` VARCHAR(20),
+`team_name` VARCHAR(80),
 `country_tournament_id` INT,
 `continental_tournament_id` INT,
 PRIMARY KEY (`team_id`), FOREIGN KEY (`country_tournament_id`) REFERENCES COUNTRY_TOURNAMENTS (`country_tournament_id`),
 FOREIGN KEY (`continental_tournament_id`) REFERENCES CONTINENTAL_TOURNAMENTS (`continental_tournament_id`) );
 
 
-
 -- TABLE PLAYERS --
 
-DROP TABLE IF EXISTS PLAYERS;
-CREATE TABLE IF NOT EXISTS `PLAYERS` (
-`player_id` INT NOT NULL,
-`player_name` VARCHAR(20),
-`player_lastname` VARCHAR(20),
-`birthdate` DATE NOT NULL,
-`player_age` INT NOT NULL,
-`player_position` VARCHAR(4),
-`team_id` INT,
-`country_id` INT,
-PRIMARY KEY (`player_id`) , FOREIGN KEY (`team_id`) REFERENCES TEAMS (`team_id`),
-FOREIGN KEY (`country_id`) REFERENCES COUNTRY (`country_id`)
- ) ;
+ 
+ ALTER TABLE PLAYERS
+ ADD CONSTRAINT PK_PLAYERS PRIMARY KEY (`player_id`),
+ADD CONSTRAINT FK_TEAM_PLAYER FOREIGN KEY (`team_id`) REFERENCES TEAMS (`team_id`),
+ADD CONSTRAINT FK_COUNTRY_PLAYER FOREIGN KEY (`country_id`) REFERENCES COUNTRY (`country_id`);
+
+
+
  
 
 
