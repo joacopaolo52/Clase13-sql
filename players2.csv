@@ -1,0 +1,16 @@
+player_id,player_name,player_lastname,birthdate,player_age,player_position,team_id,country_id,height
+1,Santiago,Rodriguez,15/04/2000,22,Forward,6,3,1.78
+2,Oscar,Silva,22/09/1999,23,Midfielder,9,1,1.75
+3,Ahmed,Opeka,10/03/1998,24,Defender,5,16,1.82
+4,Jose,Torres,03/08/2001,20,Goalkeeper,1,6,1.90
+5,Kim,Lee,18/07/2000,22,Midfielder,11,25,1.76
+6,Silvestre,Costa,02/12/2000,22,Defender,U23 Juventus,4,1.83
+7,Hiroshi,Tanaka,18/09/1999,23,Forward,11,17,1.79
+8,Milton,Ramirez,10/06/2002,20,Goalkeeper,10,5,1.88
+9,Antonio,Hernandez,08/11/2001,21,Midfielder,1,13,1.77
+10,Aisha,Khan,20/03/2002,20,Defender,3,18,1.84
+11,Diego,Fernandez,22/07/1998,24,Goalkeeper,6,3,1.87
+12,Ying,Chen,03/05/2001,21,Forward,7,25,1.81
+13,Antonio,Rossi,17/11/1997,25,Midfielder,8,4,1.78
+14,Meca,Ivanov,14/09/2002,20,Defender,7,20,1.76
+15,Juan,Eriksen,09/06/2001,21,Goalkeeper,12,23,1.88
